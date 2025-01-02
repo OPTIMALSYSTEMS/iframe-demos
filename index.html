@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iframe Sandbox Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Iframe Sandbox Demo</h1>
+
+    <div class="controls">
+      <label for="pdfUpload">Upload a PDF to test:</label>
+      <input type="file" id="pdfUpload" accept=".pdf">
+      <button id="openPdf">Open PDF in New Tab</button>
+      <button id="downloadPdf">Download PDF</button>
+    </div>
+
+    <div class="iframe-container">
+      <iframe 
+        id="demoIframe"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-presentation allow-modals allow-popups allow-popups-to-escape-sandbox allow-downloads"
+        src="iframe-content.html"
+        title="Iframe Sandbox Demo"
+      ></iframe>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

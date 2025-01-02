@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iframe Content</title>
+</head>
+<body>
+  <h2>Iframe Content</h2>
+  <p>This iframe demonstrates "allow-popups-to-escape-sandbox" and "allow-downloads".</p>
+
+  <script>
+    window.addEventListener("message", (event) => {
+      const { action, data } = event.data;
+
+      if (action === "openPdf") {
+        // Open the uploaded PDF in a new tab
+        const win = window.open(data, "_blank");
+        if (!win) {
+          alert("Popups are blocked. Enable popups to test this feature.");
+        }
+      } else if (action === "downloadPdf") {
+        // Trigger download of the uploaded PDF
+        const link = document.createElement("a");
+        link.href = data; // Use the provided URL
+        link.download = "uploaded-document.pdf"; // Suggested file name
+        link.click();
+      }
+    });
+  </script>
+</body>
+</html>
