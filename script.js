@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     openPdfButton.addEventListener("click", () => {
       if (uploadedPdfURL) {
         iframe.contentWindow.postMessage({ action: "openPdf", data: uploadedPdfURL }, "*");
+        // URL.revokeObjectURL(uploadedPdfURL); // Revoke the URL object after download
       } else {
         alert("Please upload a PDF file first.");
       }
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     downloadPdfButton.addEventListener("click", () => {
       if (uploadedPdfURL) {
         iframe.contentWindow.postMessage({ action: "downloadPdf", data: uploadedPdfURL }, "*");
+        // URL.revokeObjectURL(uploadedPdfURL); // Revoke the URL object after download
       } else {
         alert("Please upload a PDF file first.");
       }
