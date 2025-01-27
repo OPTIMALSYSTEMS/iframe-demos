@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     openPdfButton.addEventListener("click", () => {
       if (uploadedPdfURL) {
         iframe.contentWindow.postMessage({ action: "openPdf", data: uploadedPdfURL }, "*");
-        console.log("🚀 ~ openPdfButton.addEventListener ~ action:", action)
       } else {
         alert("Please upload a PDF file first.");
       }
